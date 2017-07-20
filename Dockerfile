@@ -7,7 +7,7 @@ ADD /src /www
 ADD ./logstash.conf /
 
 RUN echo "deb http://http.debian.net/debian jessie-backports main" | \
-      sudo tee --append /etc/apt/sources.list.d/jessie-backports.list > /dev/null
+    tee --append /etc/apt/sources.list.d/jessie-backports.list > /dev/null
 RUN apt-get update && install -y -t jessie-backports openjdk-8-jdk
 RUN update-java-alternatives -s java-1.8.0-openjdk-amd64
 
