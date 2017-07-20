@@ -8,4 +8,4 @@ ADD ./logstash.conf /etc/nginx/conf.d/default
 
 RUN wget  --no-check-certificate https://artifacts.elastic.co/downloads/logstash/logstash-5.5.0.deb
 
-CMD ["logstash", "-f /etc/nginx/conf.d/default/logstash.conf"]
+CMD ["bash"]
