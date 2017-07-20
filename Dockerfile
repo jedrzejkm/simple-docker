@@ -11,6 +11,6 @@ RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 #ADD pipeline/ /usr/share/logstash/pipeline/ 
 ADD ./logstash.conf /usr/share/logstash/config/
 
-RUN wget  --no-check-certificate https://artifacts.elastic.co/downloads/logstash/logstash-5.5.0.deb
+#RUN wget  --no-check-certificate https://artifacts.elastic.co/downloads/logstash/logstash-5.5.0.deb
 
 CMD ["sudo logstash"]
