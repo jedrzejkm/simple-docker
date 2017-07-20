@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM ubuntu:trusty
 FROM nginx
 FROM openjdk:8-jre
 
