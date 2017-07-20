@@ -5,13 +5,11 @@ FROM nginx
 ADD ./nginx.conf /etc/nginx/conf.d/default
 ADD /src /www
 ADD ./logstash.conf /
-RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | \
-  tee /etc/apt/sources.list.d/webupd8team-java.list
-RUN echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | \
-  tee -a /etc/apt/sources.list.d/webupd8team-java.list
-RUN apt-get update && install -y gpgv  
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
-RUN apt-get update && -y install oracle-java8-installer
+
+RUN echo "deb http://http.debian.net/debian jessie-backports main" | \
+      sudo tee --append /etc/apt/sources.list.d/jessie-backports.list > /dev/null
+RUN apt-get update && install -y -t jessie-backports openjdk-8-jdk
+RUN update-java-alternatives -s java-1.8.0-openjdk-amd64
 
 RUN wget  --no-check-certificate https://artifacts.elastic.co/downloads/logstash/logstash-5.5.0.deb
 
