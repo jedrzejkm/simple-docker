@@ -5,7 +5,7 @@ FROM nginx
 ADD ./nginx.conf /etc/nginx/conf.d/default
 ADD /src /www
 ADD ./logstash.conf /
-RUN apt-get update && apt-get install -y openjdk-8-jdk-headless wget
+RUN apt-get update && apt-get install -y -t jessie-backports openjdk-8-jdk-headless ca-certificates-java
 
 RUN wget  --no-check-certificate https://artifacts.elastic.co/downloads/logstash/logstash-5.5.0.deb
 
